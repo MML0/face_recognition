@@ -1,9 +1,9 @@
-## Face-recognition
+# Face_recognition
 
 Date: 2022/12/11
 
-# Droject Description 
-
+## Droject Description 
+In this repository i tryed to distinguish between two croped given faces with [neural network](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 
 face recognition with machine learning in python
 
 # Machine learning
