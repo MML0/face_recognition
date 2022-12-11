@@ -1,8 +1,8 @@
 # Face_recognition
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/serengil/deepface?color=yellow&style=flat)](https://github.com/serengil/deepface/stargazers)
-[![License](http://img.shields.io/:license-MIT-green.svg?style=flat)](https://github.com/serengil/deepface/blob/master/LICENSE)
+[![Stars](https://img.shields.io/github/stars/serengil/deepface?color=yellow&style=flat)](https://github.com/MML2003/face_recognition/stargazers)
+[![License](http://img.shields.io/:license-MIT-green.svg?style=flat)](https://github.com/MML2003/face_recognition/LICENSE)
 </div>
 Date: 2022/12/11
 
@@ -36,7 +36,10 @@ python training.py
 ```
 data set : [2D face sets](http://pics.psych.stir.ac.uk/2D_face_sets.htm )
 
-
+## Testing
+```
+python test.py
+```
 ## Contributions
 Feel free to send your pull request or open issues.
 
