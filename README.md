@@ -1,8 +1,12 @@
 # Face_recognition
+<div align="center">
 
+[![Stars](https://img.shields.io/github/stars/serengil/deepface?color=yellow&style=flat)](https://github.com/serengil/deepface/stargazers)
+[![License](http://img.shields.io/:license-MIT-green.svg?style=flat)](https://github.com/serengil/deepface/blob/master/LICENSE)
+</div>
 Date: 2022/12/11
 
-## Droject Description 
+## Project Description 
 In this repository i tryed to distinguish between two croped given faces with [neural network](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 
 
 face recognition with machine learning in python
@@ -18,7 +22,7 @@ Some implementations of machine learning use data and neural networks in a way t
 
 ![](nural-network-banner.gif)
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="30%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="40%">
 
 ## Installation Dependencies:
 
@@ -31,6 +35,8 @@ Some implementations of machine learning use data and neural networks in a way t
 python training.py
 ```
 data set : [2D face sets](http://pics.psych.stir.ac.uk/2D_face_sets.htm )
+
+
 ## Contributions
 Feel free to send your pull request or open issues.
 
