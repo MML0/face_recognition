@@ -14,9 +14,11 @@ Some implementations of machine learning use data and neural networks in a way t
 
 ### neuran network
 [Neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) are designed to work just like the human brain does. In the case of recognizing handwriting or facial recognition, the brain very quickly makes some decisions. For example, in the case of facial recognition, the brain might start with “It is female or male? Is it black or white? Is it old or young? Is it your friend or not?
-![](nural-network-banner-dog-cat.gif)
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="600">
+
+![](nural-network-banner.gif)
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="30%">
 
 ## Installation Dependencies:
 
@@ -28,7 +30,7 @@ Some implementations of machine learning use data and neural networks in a way t
 ```
 python training.py
 ```
-
+data set : [2D face sets](http://pics.psych.stir.ac.uk/2D_face_sets.htm )
 ## Contributions
 Feel free to send your pull request or open issues.
 
