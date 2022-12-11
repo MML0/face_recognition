@@ -1,7 +1,6 @@
 # Face_recognition
 <div align="center">
 
-[![Stars](https://github.com/MML2003/face_recognition?color=yellow&style=flat)](https://github.com/MML2003/face_recognition/stargazers)]
 </div>
 Date: 2022/12/11
 
