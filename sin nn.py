@@ -110,8 +110,9 @@ best_layer2_biases  = layer2.biases.copy()
 best_layer3_weights = layer3.weights.copy()
 best_layer3_biases  = layer3.biases.copy() 
 
-rv= 0.4
 
+lr = 0.5
+rv = lr
 train_count = 1000
 
 for i in range(train_count):
@@ -142,7 +143,7 @@ for i in range(train_count):
     if loss<best_loss:
         print('loss:',loss)
         print('rv : ' , rv,'\n')
-        rv= 0.4
+        rv= lr
         #print('acc:',acc)
         best_layer1_weights = layer1.weights.copy()
         best_layer1_biases  = layer1.biases.copy()
@@ -167,15 +168,16 @@ for i in range(train_count):
         ycor = []
         xcor = []
         xcor2 =[]
-        for i in range(314):
-            ycor+=[i/100]
-            xcor += [test(i/100)]
-            xcor2+= [math.sin(i/100)]
+        for j in range(314):
+            ycor+=[j/100]
+            xcor += [test(j/100)]
+            xcor2+= [math.sin(j/100)]
 
 
 
-        plt.plot(ycor , xcor , label = 'nn ') 
+        plt.plot(ycor , xcor , label = 'output of the network neuron') 
         plt.plot(ycor , xcor2 , label = 'math.sin') 
+        plt.plot([0] , [0] , label = 'i = ' + str(i)) 
 
 
 
