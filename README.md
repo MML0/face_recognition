@@ -20,7 +20,7 @@ Some implementations of machine learning use data and neural networks in a way t
 
 ![](nural-network-banner.gif)
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="40%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="70%">
 
 ## Installation Dependencies:
 
