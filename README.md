@@ -20,7 +20,7 @@ Some implementations of machine learning use data and neural networks in a way t
 
 ![](nural-network-banner.gif)
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="70%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76XzPE5uIaU7xoEL2BDl5hcoG_d2vc6nOmAZ7fA9xMsFDv-udYjmSHMycTZ8krB4jMss&usqp=CAU" width="50%">
 
 ## Installation Dependencies:
 
@@ -37,6 +37,11 @@ data set : [2D face sets](http://pics.psych.stir.ac.uk/2D_face_sets.htm )
 ## Testing
 ```
 python test.py
+```
+
+testing the code by simpler goal
+```
+python sin nn.py
 ```
 ## Contributions
 Feel free to send your pull request or open issues.
