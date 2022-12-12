@@ -5,11 +5,11 @@ np.random.seed(0)
 random.seed(0)
 model_name = '50x50-4l'
 model_name_load = '50x50-4l'
-    
 list_dirf = os.listdir()
-folder = 'nottingham_originals/croped'
-list_dir = os.listdir('nottingham_originals/croped')
-print('all photos : ', len (list_dir))
+model_folder = 'model'
+folder = 'data'
+list_dir = os.listdir('data')
+print('photos : ', len (list_dir))
 
 photodata=[]
 data = []
@@ -47,19 +47,15 @@ for i in range(800):
         data.append(photodata)        
         t.append(a2)         
             
-        #cv2.imshow('a',image1)
-        #k = cv2.waitKey(10) & 0xff
-        #time.sleep(0.021)
     except :
         print(i)
-        print(sabr_XD)
         
     
 y= np.array(t)
 cv2.destroyAllWindows()
 
-print('\n\nlen  data set: ',len(data))
-print('\n\n')
+print('data set: ',len(data))
+
 
 class Layer :
     def __init__(self,n_inputs,n_neurons):
@@ -105,16 +101,16 @@ class Loss_C2(Loss):
                 
         return loss_n / samples
 def save ():
-    w1=open('best_layer1_weights'+model_name+'.npy','wb')
-    b1=open('best_layer1_biases'+model_name+'.npy','wb')
-    w2=open('best_layer2_weights'+model_name+'.npy','wb')
-    b2=open('best_layer2_biases'+model_name+'.npy','wb')
-    w3=open('best_layer3_weights'+model_name+'.npy','wb')
-    b3=open('best_layer3_biases'+model_name+'.npy','wb')
-    w4=open('best_layer4_weights'+model_name+'.npy','wb')
-    b4=open('best_layer4_biases'+model_name+'.npy','wb')
+    w1=open(model_folder + '/' + 'best_layer1_weights'+model_name+'.npy','wb')
+    b1=open(model_folder + '/' + 'best_layer1_biases'+model_name+'.npy','wb')
+    w2=open(model_folder + '/' + 'best_layer2_weights'+model_name+'.npy','wb')
+    b2=open(model_folder + '/' + 'best_layer2_biases'+model_name+'.npy','wb')
+    w3=open(model_folder + '/' + 'best_layer3_weights'+model_name+'.npy','wb')
+    b3=open(model_folder + '/' + 'best_layer3_biases'+model_name+'.npy','wb')
+    w4=open(model_folder + '/' + 'best_layer4_weights'+model_name+'.npy','wb')
+    b4=open(model_folder + '/' + 'best_layer4_biases'+model_name+'.npy','wb')
 
-    best_loss_file = open('best_loss'+model_name+'.txt','w')
+    best_loss_file = open(model_folder + '/' + 'best_loss'+model_name+'.txt','w')
     best_loss_file.write(str(best_loss))
     best_loss_file.close()
 
@@ -126,6 +122,7 @@ def save ():
     np.save(b3, best_layer3_biases.copy()  )
     np.save(w4, best_layer4_weights.copy() )
     np.save(b4, best_layer4_biases.copy()  )
+    print('saved')
 
 def test(a1,a2=0,a3=0,a4=0):
     data = [a1,a2,a3,a4]
@@ -162,14 +159,14 @@ try :
     
     best_loss = 999999
     
-    w1=open('best_layer1_weights'+model_name_load+'.npy','rb')
-    b1=open('best_layer1_biases'+model_name_load+'.npy','rb')
-    w2=open('best_layer2_weights'+model_name_load+'.npy','rb')
-    b2=open('best_layer2_biases'+model_name_load+'.npy','rb')
-    w3=open('best_layer3_weights'+model_name_load+'.npy','rb')
-    b3=open('best_layer3_biases'+model_name_load+'.npy','rb')
-    w4=open('best_layer4_weights'+model_name_load+'.npy','rb')
-    b4=open('best_layer4_biases'+model_name_load+'.npy','rb')
+    w1=open(model_folder + '/' + 'best_layer1_weights'+model_name_load+'.npy','rb')
+    b1=open(model_folder + '/' + 'best_layer1_biases'+model_name_load+'.npy','rb')
+    w2=open(model_folder + '/' + 'best_layer2_weights'+model_name_load+'.npy','rb')
+    b2=open(model_folder + '/' + 'best_layer2_biases'+model_name_load+'.npy','rb')
+    w3=open(model_folder + '/' + 'best_layer3_weights'+model_name_load+'.npy','rb')
+    b3=open(model_folder + '/' + 'best_layer3_biases'+model_name_load+'.npy','rb')
+    w4=open(model_folder + '/' + 'best_layer4_weights'+model_name_load+'.npy','rb')
+    b4=open(model_folder + '/' + 'best_layer4_biases'+model_name_load+'.npy','rb')
     
     
     layer1.weights = np.load(w1 , allow_pickle=True)
@@ -182,7 +179,7 @@ try :
     layer4.biases  = np.load(b4 , allow_pickle=True)
     print('best weights loaded ☻')
     print('loading loss ')
-    best_loss_filer = open('best_loss'+model_name_load+'.txt','r')
+    best_loss_filer = open(model_folder + '/' + 'best_loss'+model_name_load+'.txt','r')
     best_loss = eval (best_loss_filer.read())
     print('OK !')
 
@@ -213,7 +210,7 @@ best_layer4_biases  = layer4.biases.copy()
 
 lr=0.005
 
-best_loss +=00.000001
+#best_loss +=00.26
 rv= 0.000000000000001
 for i in range(10000):
     #print(i)
@@ -271,7 +268,7 @@ for i in range(10000):
         layer3.biases  = best_layer3_biases.copy()
         layer4.weights = best_layer4_weights.copy()
         layer4.biases  = best_layer4_biases.copy()
-    if i %9000==9999:
+    if i %9000==0:
         print('\nrv : ' , rv)
         print('acc : ',round(acc*100000)/1000)
         print('loss : ',loss)
