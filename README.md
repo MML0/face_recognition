@@ -41,7 +41,8 @@ python test.py
 
 
 
-Testing the functionality of the program with a simpler goal
+Testing the functionality of the program with a simpler goal.
+Building a model that takes the angle input in radians and gives the sine of that angle.
 ```
 python sin nn.py
 ```
