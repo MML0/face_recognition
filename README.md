@@ -14,7 +14,7 @@ face recognition with machine learning in python
 
 Some implementations of machine learning use data and neural networks in a way that mimics the working of a biological brain.In its application across business problems, machine learning is also referred to as predictive analytics.
 
-### neuran network
+### Neuran network
 [Neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) are designed to work just like the human brain does. In the case of recognizing handwriting or facial recognition, the brain very quickly makes some decisions. For example, in the case of facial recognition, the brain might start with “It is female or male? Is it black or white? Is it old or young? Is it your friend or not?
 
 
