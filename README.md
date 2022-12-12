@@ -39,7 +39,9 @@ data set : [2D face sets](http://pics.psych.stir.ac.uk/2D_face_sets.htm )
 python test.py
 ```
 
-testing the code by simpler goal
+
+
+Testing the functionality of the program with a simpler goal
 ```
 python sin nn.py
 ```
