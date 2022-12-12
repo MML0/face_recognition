@@ -24,7 +24,7 @@ Some implementations of machine learning use data and neural networks in a way t
 
 ## Installation Dependencies:
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Python 3](https://www.python.org/downloads/)
 * [OpenCV-Python](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 * [matplotlib.pyplot](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
