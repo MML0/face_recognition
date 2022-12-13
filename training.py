@@ -1,6 +1,7 @@
 #import matplotlib.pyplot as plt
 import numpy as np
 import random , os , cv2  , time 
+
 np.random.seed(0)
 random.seed(0)
 model_name = '50x50-4l'
@@ -10,12 +11,15 @@ model_folder = 'model'
 folder = 'data'
 list_dir = os.listdir('data')
 print('photos : ', len (list_dir))
+a_data = 800
+
+
 
 photodata=[]
 data = []
 t=[]
-#random.seed(123)
-for i in range(800):
+
+for i in range(a_data):
     try :
         photodata=[]
         a1=random.randint(1,len(list_dir)-1)
@@ -122,7 +126,7 @@ def save ():
     np.save(b3, best_layer3_biases.copy()  )
     np.save(w4, best_layer4_weights.copy() )
     np.save(b4, best_layer4_biases.copy()  )
-    print('saved')
+    print('saved \n')
 
 def test(a1,a2=0,a3=0,a4=0):
     data = [a1,a2,a3,a4]
@@ -210,8 +214,8 @@ best_layer4_biases  = layer4.biases.copy()
 
 lr=0.005
 
-#best_loss +=00.26
-rv= 0.000000000000001
+best_loss += 1
+rv= 0
 for i in range(10000):
     #print(i)
     layer1.weights += rv * np.random.rand(5000,500)-rv/2
@@ -246,8 +250,8 @@ for i in range(10000):
     if loss<best_loss:
         print('\nrv : ' , rv)
         rv= lr
-        print('acc : ',round(acc*100000)/1000)
-        print('loss : ',loss,'\n delta loss : ',best_loss-loss)
+        print('acc : ', round(acc*100000)/1000)
+        print('loss : ', loss ,'\ndelta loss : ', best_loss-loss )
         save()
         best_layer1_weights = layer1.weights.copy()
         best_layer1_biases  = layer1.biases.copy()
@@ -259,7 +263,7 @@ for i in range(10000):
         best_layer4_biases  = layer4.biases.copy()         
         best_loss = loss
     else:
-        rv -= rv/10
+        rv -= rv/20
         layer1.weights = best_layer1_weights.copy()
         layer1.biases  = best_layer1_biases.copy()
         layer2.weights = best_layer2_weights.copy()
