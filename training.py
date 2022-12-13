@@ -216,7 +216,7 @@ lr=0.05
 
 best_loss += 1
 rv= 0
-for i in range(10000):
+for i in range(1000000):
     #print(i)
     layer1.weights += rv * np.random.rand(5000,500)-rv/2
     layer1.biases  += rv * np.random.rand(1,500)-rv/2
