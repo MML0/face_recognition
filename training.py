@@ -11,7 +11,7 @@ model_folder = 'model'
 folder = 'data'
 list_dir = os.listdir('data')
 print('photos : ', len (list_dir))
-a_data = 800
+a_data = 1400
 
 
 
@@ -212,7 +212,7 @@ best_layer4_biases  = layer4.biases.copy()
 
 
 
-lr=0.005
+lr=0.05
 
 best_loss += 1
 rv= 0
