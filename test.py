@@ -22,7 +22,6 @@ names = {0:'MML' , 1:'mml' , 2:'mml' , 3:'sol' , 4:'sol', 5:'sol'}
 webcam = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
-#random.seed(123)
 def load_photos():
     global data , y , image2 
     data = []
@@ -162,8 +161,7 @@ try :
 except Exception as er:
     
     print(er, '\n ')
-    print(sabr)
-
+    print('models are missing !')
 
 activation1=activation()
 activation2=activation()
@@ -171,10 +169,7 @@ activation3=activation()
 activation4=activation_softmax()
 loss_function = Loss_C()
 
-lr=0.005
 
-best_loss +=00.000001
-rv= 0.000000000000001
 for i in range(10000):
     try:
         load_photos()
