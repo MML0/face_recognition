@@ -4,14 +4,18 @@ import random , os , cv2  , time
 
 np.random.seed(0)
 random.seed(0)
+
 model_name = '50x50-4l'
 model_name_load = '50x50-4l'
+
 list_dirf = os.listdir()
 model_folder = 'model'
 folder = 'data'
 list_dir = os.listdir('data')
 print('photos : ', len (list_dir))
 a_data = 1400
+
+
 
 
 
