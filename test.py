@@ -19,7 +19,7 @@ camera_input=False
 
 
 if not camera_input:
-    filename = 'C:/Users/HP/Downloads/dcim/DCIM_Camera_IMG_20210128_095949.jpg' #input()#tkinter.filedialog.askopenfilename()
+    filename = tkinter.filedialog.askopenfilename()
     print(filename)
 
     frame = cv2.imread(filename, cv2.IMREAD_UNCHANGED)    
