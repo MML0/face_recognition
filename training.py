@@ -212,11 +212,11 @@ best_layer4_biases  = layer4.biases.copy()
 
 
 
-lr=0.05
+lr=0.1
 
 best_loss += 1
 rv= 0
-for i in range(1000000):
+for i in range(10000000):
     #print(i)
     layer1.weights += rv * np.random.rand(5000,500)-rv/2
     layer1.biases  += rv * np.random.rand(1,500)-rv/2
@@ -263,7 +263,7 @@ for i in range(1000000):
         best_layer4_biases  = layer4.biases.copy()         
         best_loss = loss
     else:
-        rv -= rv/20
+        rv -= rv/10
         layer1.weights = best_layer1_weights.copy()
         layer1.biases  = best_layer1_biases.copy()
         layer2.weights = best_layer2_weights.copy()
@@ -276,7 +276,7 @@ for i in range(1000000):
         print('\nrv : ' , rv)
         print('acc : ',round(acc*100000)/1000)
         print('loss : ',loss)
-    if i %30==0:
+    if i %50==0:
         print(i)
 
 

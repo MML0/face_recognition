@@ -1,7 +1,7 @@
 import cv2 
 import tkinter.filedialog
 
-camera_input=True
+camera_input=False
 
 
 

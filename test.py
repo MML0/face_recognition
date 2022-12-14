@@ -14,12 +14,12 @@ list_dir = os.listdir('subjects_photos')
 print(list_dir)
 names = {0:'MML' , 1:'mml' , 2:'mml' , 3:'sol' , 4:'sol', 5:'sol'}
 
-camera_input=True
+camera_input=False
 
 
 
 if not camera_input:
-    filename = tkinter.filedialog.askopenfilename()
+    filename = 'C:/Users/HP/Downloads/dcim/DCIM_Camera_IMG_20210128_095949.jpg' #input()#tkinter.filedialog.askopenfilename()
     print(filename)
 
     frame = cv2.imread(filename, cv2.IMREAD_UNCHANGED)    
@@ -43,7 +43,8 @@ def load_photos():
     y=[]
     if camera_input:
         check, frame = webcam.read()
-    
+    else :
+         frame = cv2.imread(filename, cv2.IMREAD_UNCHANGED)   
 
     img = frame
     image = cv2.cvtColor(img , cv2.COLOR_RGB2BGR)
@@ -54,6 +55,9 @@ def load_photos():
         roi_gray = gray[y:y+h, x:x+w]
         output = cv2.resize(roi_gray, (50, 50))
         image2 = output
+        #key = cv2.waitKey(2000)
+        #cv2.imshow('a',output)
+        #key = cv2.waitKey(2000)
         break
 
     for i in (list_dir):
@@ -61,8 +65,10 @@ def load_photos():
             photodata=[]
 
             image1 = cv2.imread(folder+"/"+i)
+            #key = cv2.waitKey(2000)
+            #cv2.imshow(str(i),image1)
+            #key = cv2.waitKey(2000)
 
-            
                     
             for j in range(50):
                 for k in range(50):
@@ -83,8 +89,7 @@ def load_photos():
 load_photos()
 
 
-print('\n\nlen  data set: ',len(data))
-print('\n\n')
+print('data: ',len(data))
 
 class Layer :
     def __init__(self,n_inputs,n_neurons):
@@ -165,8 +170,9 @@ try :
 
 except Exception as er:
     
-    print(er, '\n ')
+    print(er)
     print('models are missing !')
+
 
 activation1=activation()
 activation2=activation()
@@ -192,8 +198,7 @@ while True :
         layer4.forward(activation3.output)
         activation4.forward(layer4.output)
 
-        #print(activation2.output)
-        #print(y)
+        
         predictions = np.argmax(activation4.output,axis=1)
         # , activation4.output)
         #time.sleep(1)
@@ -225,12 +230,13 @@ while True :
 
 
             for k in range(len(predictions2)):
-                if predictions2[k]== max(predictions2) and max(predictions2)>0.6:
+                if predictions2[k]== max(predictions2) and max(predictions2)>0.3:
                     print(names[k] , predictions2 )
             #print( predictions[2] )
-        cv2.imshow("Capturing", image)
-
-        
+        if camera_input:
+            cv2.imshow("Capturing", image)
+        else:
+            break
         if key == ord('q'):
             print("Turning off camera.")
             webcam.release()
