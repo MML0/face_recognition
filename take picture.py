@@ -1,7 +1,8 @@
 import cv2 
 import tkinter.filedialog
 
-camera_input=False
+camera_input=True
+
 
 
 
@@ -33,7 +34,7 @@ while True:
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         
         for (x,y,w,h) in faces:
-            #cv2.rectangle(image,(x-4,y-4),(x+w+4,y+h+4),(255,0,0),2)
+            cv2.rectangle(image,(x-4,y-4),(x+w+4,y+h+4),(255,0,0),2)
             roi_gray = gray[y:y+h, x:x+w]
         if camera_input:
             cv2.imshow("Capturing", image)
@@ -46,10 +47,11 @@ while True:
             for (x,y,w,h) in faces:
                 
                 roi_gray = gray[y:y+h, x:x+w]
-            
-            
+
+            # resize image
+            output = cv2.resize(roi_gray, (50, 50))
             xx,yy,d=image.shape
-            cv2.imwrite(filename='subjects_photos/' + input('file number (1~100)?') + '.png', img=gray[y:y+h, x:x+w])
+            cv2.imwrite(filename='subjects_photos/' + input('file number (1~100)?') + '.png', img=output)
             
         elif key == ord('q'):
             print("Turning off camera.")

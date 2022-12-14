@@ -1,33 +1,48 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import random , os , cv2  , time , pygame
+import random , os , cv2  , time , pygame , tkinter.filedialog
 
 np.random.seed(0)
 random.seed(0)
 
-model_name = '50x50-4l'
+model_folser = 'model'
 model_name_load = '50x50-4l'
     
-list_dirf = os.listdir()
-folder = 'pics'
-list_dir = os.listdir('pics')
+
+folder = 'subjects_photos'
+list_dir = os.listdir('subjects_photos')
+print(list_dir)
+names = {0:'MML' , 1:'mml' , 2:'mml' , 3:'sol' , 4:'sol', 5:'sol'}
+
+camera_input=True
+
+
+
+if not camera_input:
+    filename = tkinter.filedialog.askopenfilename()
+    print(filename)
+
+    frame = cv2.imread(filename, cv2.IMREAD_UNCHANGED)    
+else:
+    webcam = cv2.VideoCapture(0)
+    check, frame = webcam.read()
+
 print('all photos : ', len (list_dir))
 
 photodata=[]
 data = []
 t=[]
 
-names = {0:'MML' , 1:'mml' , 2:'mml' , 3:'sol' , 4:'sol', 5:'sol'}
-
-webcam = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 def load_photos():
-    global data , y , image2 
+    global data , y , image2 , frame 
+    
     data = []
     t=[]
     y=[]
-    check, frame = webcam.read()
+    if camera_input:
+        check, frame = webcam.read()
     
 
     img = frame
@@ -36,22 +51,13 @@ def load_photos():
     faces = face_cascade.detectMultiScale(gray, 1.1, 5)
 
     for (x,y,w,h) in faces:
-        cv2.rectangle(image,(x-4,y-4),(x+w+4,y+h+4),(255,0,0),2)
         roi_gray = gray[y:y+h, x:x+w]
-    
-
-        xx,yy,d=image.shape
-        cv2.imwrite(filename='aa.jpg', img=gray)
-        pi2=(pygame.transform.chop(
-            pygame.image.load('aa.jpg'),(0,0,x,y)))
-        pi=pygame.transform.scale(pygame.transform.chop(pi2,(h,w,xx-x,yy-y))
-                                    ,(50,50))
-        pygame.image.save(pi , 'aa_cam_pic.png')
-
-        image2 = cv2.imread('aa_cam_pic.png')
+        output = cv2.resize(roi_gray, (50, 50))
+        image2 = output
+        break
 
     for i in (list_dir):
-        try :
+        if (1) :
             photodata=[]
 
             image1 = cv2.imread(folder+"/"+i)
@@ -63,15 +69,14 @@ def load_photos():
                     photodata.append(image1[j][k][0]/255)
             for j in range(50):
                 for k in range(50):
-                    photodata.append(image2[j][k][0]/255)
+                    photodata.append(image2[j][k]/255)
             data.append(photodata)        
             t.append(0)         
                     
             #cv2.imshow('a',image1)
             #k = cv2.waitKey(10) & 0xff
             #time.sleep(0.021)
-        except :
-            pass
+        
         
     y= np.array(t)
 
@@ -138,14 +143,14 @@ try :
     
     best_loss = 999999
     
-    w1=open('best_layer1_weights'+model_name_load+'.npy','rb')
-    b1=open('best_layer1_biases'+model_name_load+'.npy','rb')
-    w2=open('best_layer2_weights'+model_name_load+'.npy','rb')
-    b2=open('best_layer2_biases'+model_name_load+'.npy','rb')
-    w3=open('best_layer3_weights'+model_name_load+'.npy','rb')
-    b3=open('best_layer3_biases'+model_name_load+'.npy','rb')
-    w4=open('best_layer4_weights'+model_name_load+'.npy','rb')
-    b4=open('best_layer4_biases'+model_name_load+'.npy','rb')
+    w1=open(model_folser + '/' + 'best_layer1_weights'+model_name_load+'.npy','rb')
+    b1=open(model_folser + '/' + 'best_layer1_biases'+model_name_load+'.npy','rb')
+    w2=open(model_folser + '/' + 'best_layer2_weights'+model_name_load+'.npy','rb')
+    b2=open(model_folser + '/' + 'best_layer2_biases'+model_name_load+'.npy','rb')
+    w3=open(model_folser + '/' + 'best_layer3_weights'+model_name_load+'.npy','rb')
+    b3=open(model_folser + '/' + 'best_layer3_biases'+model_name_load+'.npy','rb')
+    w4=open(model_folser + '/' + 'best_layer4_weights'+model_name_load+'.npy','rb')
+    b4=open(model_folser + '/' + 'best_layer4_biases'+model_name_load+'.npy','rb')
     
     
     layer1.weights = np.load(w1 , allow_pickle=True)
@@ -170,7 +175,7 @@ activation4=activation_softmax()
 loss_function = Loss_C()
 
 
-for i in range(10000):
+while True :
     try:
         load_photos()
 
@@ -192,8 +197,9 @@ for i in range(10000):
         predictions = np.argmax(activation4.output,axis=1)
         # , activation4.output)
         #time.sleep(1)
+        if camera_input:
+            check, frame = webcam.read()
         
-        check, frame = webcam.read()
         #print(check) #prints true as long as the webcam is running
         #print(frame) #prints matrix values of each framecd 
         
@@ -233,6 +239,7 @@ for i in range(10000):
             cv2.destroyAllWindows()
             break
         
-    except:
+    except Exception as er:
+        #print(er)
         pass
  
