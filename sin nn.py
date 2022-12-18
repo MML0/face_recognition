@@ -175,7 +175,7 @@ for i in range(train_count):
 
 
 
-        plt.plot(ycor , xcor , label = 'output of the network neuron') 
+        plt.plot(ycor , xcor , label = 'output of the neuron network') 
         plt.plot(ycor , xcor2 , label = 'math.sin') 
         plt.plot([0] , [0] , label = 'i = ' + str(i)) 
 
