@@ -10,9 +10,9 @@ t=[]
 
 for i in range(1920):
     a1=(random.randint(0,314)/100)
-    a2=(random.random())
-    a3=(random.random())
-    a4=(random.random())
+    #a2=(random.random())
+    #a3=(random.random())
+    #a4=(random.random())
     data.append([a1])#,a2,a3,a3])
     #t.append([(4*a1),0])
     #t.append([a1,a2])
