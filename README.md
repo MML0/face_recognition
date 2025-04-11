@@ -1,3 +1,5 @@
+it was just for learning new and simple things in machine learning
+it won't work
 # Face_recognition
 <div align="center">
 
